@@ -1,6 +1,7 @@
 //const express = require('express')
 import express from 'express'
-import {PORT} from './config.js'
+import mongoose from 'mongoose'
+import {PORT,mongodbURL} from './config.js'
 
 const app = express()
 
@@ -11,6 +12,15 @@ app.get('/', (req, res) => {
     return  res.status(200).send("Lets learn MERN stack")
 })
 
-app.listen(port, () => {
-    console.log(`App is listening to port ${port}`)
-})
+mongoose
+    .connect(mongodbURL)
+    .then(() => {
+        console.log("Connected to Database")
+        app.listen(port, () => {
+            console.log(`App is listening to port ${port}`)
+        })
+
+    })
+    .catch((err) => {
+        console.log(err)
+    })
