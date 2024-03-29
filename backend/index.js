@@ -48,7 +48,18 @@ app.get('/books', async (req, res) => {
         console.log(err.message)
         res.status(400).send({message: err.message})
     }
-}) 
+})
+
+app.get('/books/:id', async (req, res) => {
+    try {
+        const { id } = req.params
+        const book = await Book.findById(id)
+        res.status(200).json(book)
+    } catch (err) {
+        console.log(err)
+        res.status(500).send({message: err.message})        
+    }    
+})
 
 mongoose
     .connect(mongodbURL)
