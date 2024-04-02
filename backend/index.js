@@ -13,14 +13,14 @@ app.use('/books', booksRoute)
 
 //Middleware for handling CORS Policy
 //Option 1 - Allow all origins with default of cors
-//app.use(cors())
+app.use(cors())
 //Option 2 - Allow custom origins
-app.use(cors({
+/*app.use(cors({
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type']
 }))
-
+*/
 const port = process.env.PORT || PORT
 
 app.get('/', (req, res) => {
