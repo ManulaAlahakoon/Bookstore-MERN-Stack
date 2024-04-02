@@ -9,11 +9,12 @@ import booksRoute from './routes/bookRoutes.js'
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 app.use('/books', booksRoute)
 
 //Middleware for handling CORS Policy
 //Option 1 - Allow all origins with default of cors
-app.use(cors())
+
 //Option 2 - Allow custom origins
 /*app.use(cors({
     origin: 'http://localhost:3000',
