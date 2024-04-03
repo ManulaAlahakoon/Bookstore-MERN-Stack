@@ -30,7 +30,7 @@ const Home = () => {
     <div className='p-4'>
           <div className='flex justify-between items-center'>
               <h1 className='text-3xl my-8'>Book List</h1>
-              <Link>
+              <Link to={'/books'}>
                   <IoIosAddCircleOutline className='text-sky-800 text-4xl'/>
               </Link>   
           </div>
